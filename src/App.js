@@ -3,19 +3,12 @@ import React, {
 } from 'react';
 import axios from 'axios';
 import Loading from './Components/Loading';
+import Counter from './Components/Counter';
+import HackerNews from './Components/HackerNews';
 import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
     Container,
     Row,
-    Col,
-    Jumbotron,
-    Button
+    Col
 } from 'reactstrap';
 
 class App extends Component {
@@ -69,6 +62,11 @@ class App extends Component {
         <Container>
             <Row>
                 <Col>
+                    <Counter />
+                </Col>
+            </Row>
+            <Row>
+                <Col>
                     <div className="alert alert-primary p-2 mb-0 mt-3">
                         <form onSubmit={this.loadMore}>
                             <Row>
@@ -88,6 +86,9 @@ class App extends Component {
                             {!loading ? <table className="table table-bordered table-striped"><thead><tr><th>Name</th><th>Cell No.</th><th>Email Id</th></tr></thead>{data}</table> : <Loading message="Loading.! Please Wait....." />}
                         </div>
                     </div>
+                </Col>
+                <Col>
+                    <HackerNews />
                 </Col>
             </Row>
         </Container>
